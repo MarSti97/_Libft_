@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 15:40:43 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/31 11:40:35 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/02 16:13:44 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/02 16:48:46 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strdup(const char *str)
 {
-	int	i;
+	char	*ptr;
 
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-	{
-		if (str[i] == (char)c)
-		{
-			return ((char *)&str[i]);
-		}
-		i++;
-	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
-	return (NULL);
+	ptr = malloc((strlen(str) - 1 * (sizeof(char) + 1)));
+    if (ptr[0] == '\0')
+    {
+        return (0);
+    }
+	return (ptr);
 }
 
-/*int main()
-{
-	char str[] = "tripouille";
 
-	printf("The func = %s\n", strchr(str, 't' + 256));
-	printf("My func = %s\n", ft_strchr(str, 't' + 256));
-}*/

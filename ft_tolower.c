@@ -6,17 +6,17 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:44:58 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/28 16:19:46 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/10/31 12:06:11 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int     ft_tolower(int c)
+int	ft_tolower(int c)
 {
-        if (c <= 90 && c >= 65)
-                c += 32;
-        return (c);
+	if (c <= 90 && c >= 65)
+		c += 32;
+	return (c);
 }
 
 /*int main()

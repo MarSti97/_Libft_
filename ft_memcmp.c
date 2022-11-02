@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 15:40:43 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/31 11:40:35 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/02 09:15:25 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/02 11:58:40 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-char	*ft_strchr(const char *str, int c)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	int	i;
+	size_t	i;
+	int		res;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-	{
-		if (str[i] == (char)c)
-		{
-			return ((char *)&str[i]);
-		}
+	res = 0;
+	while (i != n - 1
+		&& ((unsigned char *)str1)[i] == ((unsigned char *)str2)[i])
 		i++;
-	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
-	return (NULL);
+	res = (((unsigned char *)str1)[i] - ((unsigned char *)str2)[i]);
+	if (n < 1)
+		res = 0;
+	return (res);
 }
 
 /*int main()
 {
-	char str[] = "tripouille";
-
-	printf("The func = %s\n", strchr(str, 't' + 256));
-	printf("My func = %s\n", ft_strchr(str, 't' + 256));
+    char str[] = "t\200";
+    char str2[] = "t\0";
+    printf("The function: %i\n", memcmp(str, str2, 2));
+    printf("My function: %i", ft_memcmp(str, str2, 2));
 }*/

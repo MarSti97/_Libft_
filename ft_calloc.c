@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 15:40:43 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/31 11:40:35 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/02 15:29:54 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/02 16:29:22 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strchr(const char *str, int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	i;
+	void	*ptr;
+	size_t	i;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
+	if (size == 0)
 	{
-		if (str[i] == (char)c)
-		{
-			return ((char *)&str[i]);
-		}
+		return (0);
+	}
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+	{
+		return (0);
+	}
+	while (i < nmemb * size)
+	{
+		((unsigned char *)ptr)[i] = '\0';
 		i++;
 	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
-	return (NULL);
+	return (ptr);
 }
-
-/*int main()
-{
-	char str[] = "tripouille";
-
-	printf("The func = %s\n", strchr(str, 't' + 256));
-	printf("My func = %s\n", ft_strchr(str, 't' + 256));
-}*/

@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:06 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/28 16:22:25 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/10/31 12:11:20 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 127)
+	if (c >= 32 && c < 127)
 		return (1);
 	else
 		return (0);
@@ -22,7 +22,7 @@ int	ft_isprint(int c)
 
 /*int main()
 {
-	char c = '\t';
+	char c = 127;
 
 	printf("%i", ft_isprint(c));
 }*/

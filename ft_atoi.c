@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 15:40:43 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/31 11:40:35 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/10/31 12:12:59 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/02 14:35:29 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 
-char	*ft_strchr(const char *str, int c)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
+	int		i;
+	long	res;
+	int		neg;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
+	res = 0;
+	neg = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (str[i] == (char)c)
-		{
-			return ((char *)&str[i]);
-		}
+		if (nptr[i] == '-')
+			neg = neg * -1;
 		i++;
 	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
-	return (NULL);
+	while (nptr[i] <= 57 && nptr[i] >= 48)
+	{
+		res = res * 10 + nptr[i] - 48;
+		i++;
+	}
+	return (res * neg);
 }
 
-/*int main()
+/* int main()
 {
-	char str[] = "tripouille";
+    char nptr[] = " 		 -4352";
 
-	printf("The func = %s\n", strchr(str, 't' + 256));
-	printf("My func = %s\n", ft_strchr(str, 't' + 256));
-}*/
+    printf("%i", ft_atoi(nptr));
+} */
