@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 16:13:44 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/03 10:05:43 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/03 09:23:24 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/03 14:15:43 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
-#include "libft.h"
 #include <stdio.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	char	*ptr;
+	char	*subs;
 
-	ptr = malloc(ft_strlen(str) + 1);
-	ptr = ft_memcpy(ptr, str, ft_strlen(str) + 1);
-	if (ptr[0] == '\0')
-	{
-		return (0);
-	}
-	return (ptr);
+	subs = malloc(len + 1);
+	if (ft_strlen(str) < start)
+		return (subs);
+	if (!subs || !str)
+		return (NULL);
+	ft_memcpy(subs, (char *)&str[start], len);
+	subs[len] = '\0';
+	return (subs);
 }
 
 /* int main()
 {
     char str[] = "lorem ipsum dolor sit amet";
-    
-    printf("%s", ft_strdup(str));
+	
+	printf("%s\n", ft_substr(str, 400, 20));
 } */
