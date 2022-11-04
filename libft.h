@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:16:08 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/03 11:00:16 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/04 12:04:24 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+// Part 1
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -40,7 +41,12 @@ int		ft_atoi(const char *nptr);
 void		*ft_calloc(size_t nmemb, size_t size);
 char		*ft_strdup(const char *str);
 // Part 2
-char	*ft_strjoin(char const *str1, char const *str2);
 char    *ft_substr(char const *str, unsigned int start, size_t len);
+char	*ft_strjoin(char const *str1, char const *str2);
+char	*ft_strtrim(char const *str, char const *set);
+char    **ft_split(char const *str, char c);
+char    *ft_itoa(int n);
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
+void	ft_striteri(char *str, void (*f)(unsigned int, char*));
 
 #endif 

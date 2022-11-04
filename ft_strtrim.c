@@ -6,45 +6,96 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 12:03:10 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/03 16:01:36 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/04 16:28:33 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-char	check_start(char *str, int size, char *set)
+int	check_start(char const *str, char const *set)
 {
-	int i;
-	int i2;
+	int	i;
+	int	i2;
+	int	res;
 
 	i = 0;
-	i2 = 0;
-	while (ft_strlen(set > i2))
+	res = 0;
+	while (str[i])
 	{
-		while (set[i])
+		i2 = 0;
+		while (set[i2])
 		{
-			ft_memchr(str, set[i], i2); 
-		} 
+			if (str[i] == set[i2])
+			{
+				res += 1;
+				break ;
+			}
+		i2++;
+		}
+		if (res <= i)
+			break ;
+		i++;
+	}
+	return (res);
+}
+
+int	check_end(char const *str, char const *set)
+{
+	int		i;
+	int		i2;
+	size_t	res;
+
+	i = ft_strlen(str) - 1;
+	res = 0;
+	while (i > 0)
+	{
+		i2 = 0;
+		while (set[i2])
+		{
+			if (str[i] == set[i2])
+			{
+				res += 1;
+				break ;
+			}
+			i2++;
+		}
+		if (res <= (ft_strlen(str) - 1 - i))
+			break ;
+		i--;
+	}
+	return (res);
 }
 
 char	*ft_strtrim(char const *str, char const *set)
 {
 	int		i;
-	int		count;
-	char	*temp;
 	char	*res;
-	
+	int		len;
+	int		start;
+
 	i = 0;
-	count = ft_strlen(set);
-	res = malloc(ft_strlen(str) - ft_strlen(set) + 1);
-	while (count > 0)
+	start = check_start(str, set);
+	len = (ft_strlen(str) - start - check_end(str, set));
+	res = malloc(len + 1);
+	if (!res)
+		return (NULL);
+	while (i != len)
 	{
-		if ()	
+		res[i] = str[start];
+		i++;
+		start++;
 	}
-	while (set[i])
-	{
-		res = ft_memchr(str, set[i], ft_strlen(set));
-		
-	}
+	res[i] = '\0';
+	return (res);
+}
+
+int main()
+{
+    char str[] = "\n\n\n\n  \t\t\t\t";
+    char set[] = "\n \t";
+
+    printf("Start: %i\n", check_start(str, set));
+    printf("End: %i\n", check_end(str, set));
+    printf("String: %s\n", ft_strtrim(str, set));
 }
