@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 15:29:54 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:46:50 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/08 14:51:20 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/08 17:15:53 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	main(void)
 {
-	void	*ptr;
-	size_t	i;
-
-	i = 0;
-	if (size == 0)
-	{
-		return (NULL);
-	}
-	ptr = malloc(nmemb * size);
-	if (!ptr)
-	{
-		return (0);
-	}
-	while (i < nmemb * size)
-	{
-		((unsigned char *)ptr)[i] = '\0';
-		i++;
-	}
-	return (ptr);
+	write(1, "YES", 3);
 }

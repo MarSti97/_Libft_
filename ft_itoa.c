@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	counter(int n)
+ static int	counter(int n)
 {
 	int	i;
 
@@ -35,6 +35,8 @@ char	*make_neg(int n, int length)
 	max = n;
 	i = length + 1;
 	str = malloc(length + 2);
+	if (!str)
+		return (NULL);
 	str[i] = '\0';
 	max = max * -1;
 	while (i > 1)
@@ -53,6 +55,8 @@ char	*make_pos(int n, int length)
 
 	i = length;
 	str = malloc(length + 1);
+	if (!str)
+		return (NULL);
 	str[i] = '\0';
 	while (i > 0)
 	{

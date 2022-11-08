@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 15:29:54 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:46:50 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/07 21:37:44 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/08 09:47:38 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	void	*ptr;
-	size_t	i;
+	long	i;
 
-	i = 0;
-	if (size == 0)
+	i = nb;
+	if (i < 0)
 	{
-		return (NULL);
+		write(fd, "-", 1);
+		i *= -1;
 	}
-	ptr = malloc(nmemb * size);
-	if (!ptr)
+	if (i > 9)
 	{
-		return (0);
+		ft_putnbr_fd(i / 10, fd);
+		ft_putnbr_fd(i % 10, fd);
 	}
-	while (i < nmemb * size)
+	else
 	{
-		((unsigned char *)ptr)[i] = '\0';
-		i++;
+		i = i + 48;
+		write(fd, &i, 1);
 	}
-	return (ptr);
 }
+
+/* int main()
+{
+    ft_putnbr_fd(-2147483648LL, 2);
+} */

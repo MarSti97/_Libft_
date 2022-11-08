@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 15:29:54 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:46:50 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/07 20:59:49 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/08 09:23:56 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putchar_fd(char c, int fd)
 {
-	void	*ptr;
-	size_t	i;
-
-	i = 0;
-	if (size == 0)
-	{
-		return (NULL);
-	}
-	ptr = malloc(nmemb * size);
-	if (!ptr)
-	{
-		return (0);
-	}
-	while (i < nmemb * size)
-	{
-		((unsigned char *)ptr)[i] = '\0';
-		i++;
-	}
-	return (ptr);
+	write(fd, &c, 1);
 }

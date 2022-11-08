@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 09:30:55 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/04 16:36:49 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/08 17:58:57 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,89 +15,85 @@
 #include <string.h>
 #include "libft.h"
 
-int	counter(char const *str, char c)
+static int	counter(char const *str, char c)
 {
 	int	i;
 	int	count;
+	int	skip;
 
 	i = 0;
 	count = 0;
+	skip = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] != c && skip == 0)
+		{
 			count += 1;
+			skip = 1;
+		}
 		i++;
+		while (str[i] == c)
+		{
+			skip = 0;
+			i++;
+		}
 	}
-	return (count + 1);
+	if (count <= 1)
+		return (1);
+	return (count);
 }
 
-char	**mem_all(char const *str, char c)
+char	**mem_all(char const *str, char c, char **res)
 {
 	int		i;
-	char	**res;
 	int		count;
 	int		size;
-	int		words;
 
 	count = 0;
 	i = 0;
-	words = counter(str, c);
-	res = (char **)malloc(sizeof(char *) * (words + 1));
-	while (count != words)
+	size = 0;
+	if (!res)
+		return (NULL);
+	while (str[size])
 	{
-		size = 0;
-		while (str[i])
+		if (str[size] == c)
 		{
-			if (str[i] == c)
-				break ;
-			i++;
-			size++;
+			res[count] = ft_substr(str, i, (size - i));
+			count++;
+			while (str[size] == c)
+				size++;
+			i = size;
 		}
-		res[count] = (char *)malloc(sizeof(char) * (size + 1));
-		count++;
-		i++;
+		size++;
 	}
+	if (count != counter(str, c))
+		res[count] = ft_substr(str, i, (size - i));
 	return (res);
 }
 
 char	**ft_split(char const *str, char c)
 {
-	int		i;
-	int		i2;
 	char	**res;
-	int		index;
-
-	i = 0;
-	i2 = 0;
-	index = 0;
-	res = mem_all(str, c);
+	
+	res = (char **)malloc(sizeof(char *) * (counter(str, c) + 1));
+	res = mem_all(str, c, res);
 	if (!res || !str)
 		return (NULL);
-	while (str[i])
-	{
-		if (str[i] == c)
-		{
-			res[index++][i2] = '\0';
-			i++;
-			i2 = 0;
-		}
-	res[index][i2++] = str[i++];
-	}
-	res[index++][i2] = '\0';
-	res[index] = NULL;
+	res[counter(str, c) + 1] = NULL;
 	return (res);
 }
 
-/* int main()
+int main()
 {
-    char const str[] = "Hello World, this is Marcell!";
+    char const str[] = "           ";
     char c = ' ';
 	char **res = ft_split(str, c);
 	
+	printf("%i\n", counter(str, c));
 	printf("Result word 1: %s\n", res[0]);
 	printf("Result word 2: %s\n", res[1]);
 	printf("Result word 3: %s\n", res[2]);
 	printf("Result word 4: %s\n", res[3]);
 	printf("Result word 5: %s\n", res[4]);
 	printf("Result word NULL: %s\n", res[5]);
-} */
+}

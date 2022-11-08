@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 15:29:54 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:46:50 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/07 21:10:55 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/08 09:24:43 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putendl_fd(char *str, int fd)
 {
-	void	*ptr;
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (size == 0)
+	while (str[i])
 	{
-		return (NULL);
-	}
-	ptr = malloc(nmemb * size);
-	if (!ptr)
-	{
-		return (0);
-	}
-	while (i < nmemb * size)
-	{
-		((unsigned char *)ptr)[i] = '\0';
+		write(fd, &str[i], 1);
 		i++;
 	}
-	return (ptr);
+	write(fd, "\n", 1);
 }
+
+/* int main()
+{
+    ft_putendl_fd("Marcell", 1);
+} */
