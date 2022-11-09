@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:29:54 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:46:50 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/09 12:40:42 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	i;
 
 	i = 0;
-	if (size == 0)
-	{
-		return (NULL);
-	}
 	ptr = malloc(nmemb * size);
 	if (!ptr)
 	{

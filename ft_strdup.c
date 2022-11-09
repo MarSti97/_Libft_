@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:13:44 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/03 10:05:43 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/09 12:43:04 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ char	*ft_strdup(const char *str)
 	char	*ptr;
 
 	ptr = malloc(ft_strlen(str) + 1);
+	if (!ptr)
+		return (NULL);
 	ptr = ft_memcpy(ptr, str, ft_strlen(str) + 1);
-	if (ptr[0] == '\0')
-	{
-		return (0);
-	}
 	return (ptr);
 }
 

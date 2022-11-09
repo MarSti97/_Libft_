@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
- static int	counter(int n)
+static int	counter(int n)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:22:51 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 18:20:38 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/09 15:34:45 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,36 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char 	*t_dest;
-	char	*t_src;
-	
-	t_dest = (char *)dest;
-	t_src = (char *)src;
+	size_t		i;
+
+	i = 0;
 	if (!dest && !src)
 		return (0);
 	if (dest > src)
 	{
-		while (n != 0)
+		while (n != i)
 		{
-		t_dest[n] = t_src[n];
+		((unsigned char *)dest)[n - 1] = ((unsigned char *)src)[n - 1];
 		n--;
 		}
 	}
 	else
-		ft_memcpy(t_dest, t_src, n);
-	return (t_dest);
+	{
+		while (i != n)
+		{
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
+	}
+	return (dest);
 }
 
-int main()
+/* int main()
 {
-	char src[] = "consectetur";
+	char src[] = "";
 	char *dest = "lorem ipsum dolor sit amet";
 
-	memmove(dest, src, 5);
+	ft_memmove(dest, src, 5);
 	printf("my = %s\n", dest);
 	printf("src = %s\n", src);
-}
+} */

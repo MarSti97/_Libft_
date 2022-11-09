@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:16:08 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:17:10 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:47:00 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 // Part 1
 int		ft_isalpha(int c);
@@ -52,5 +53,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int nb, int fd);
+// Bonus
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+
+}					t_list;
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
 
 #endif 

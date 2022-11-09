@@ -6,14 +6,14 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 12:03:10 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:43:07 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:00:05 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-int	check_start(char const *str, char const *set)
+static int	check_start(char const *str, char const *set)
 {
 	int	i;
 	int	i2;
@@ -40,7 +40,7 @@ int	check_start(char const *str, char const *set)
 	return (res);
 }
 
-int	check_end(char const *str, char const *set)
+static int	check_end(char const *str, char const *set)
 {
 	int		i;
 	int		i2;
@@ -69,16 +69,23 @@ int	check_end(char const *str, char const *set)
 
 char	*ft_strtrim(char const *str, char const *set)
 {
-	int		i;
+	size_t		i;
 	char	*res;
-	int		len;
-	int		start;
+	size_t		len;
+	size_t		start;
 
 	i = 0;
 	start = check_start(str, set);
 	len = (ft_strlen(str) - start - check_end(str, set));
+	if (len == 0)
+	{
+		res = (char *)malloc(sizeof(char));
+		if (!res)
+			return (0);
+		return(res = "");
+	}
 	res = malloc(len + 1);
-	if (!res || !str)
+	if (!res)
 		return (NULL);
 	while (i != len)
 	{

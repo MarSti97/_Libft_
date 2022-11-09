@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 09:30:55 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 17:58:57 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/09 12:09:24 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ static int	counter(char const *str, char c)
 			i++;
 		}
 	}
-	if (count <= 1)
-		return (1);
 	return (count);
 }
 
-char	**mem_all(char const *str, char c, char **res)
+static char	**mem_all(char const *str, char c, char **res)
 {
 	int		i;
 	int		count;
@@ -52,8 +50,6 @@ char	**mem_all(char const *str, char c, char **res)
 	count = 0;
 	i = 0;
 	size = 0;
-	if (!res)
-		return (NULL);
 	while (str[size])
 	{
 		if (str[size] == c)
@@ -66,26 +62,32 @@ char	**mem_all(char const *str, char c, char **res)
 		}
 		size++;
 	}
-	if (count != counter(str, c))
-		res[count] = ft_substr(str, i, (size - i));
+	res[count] = ft_substr(str, i, (size - i));
 	return (res);
 }
 
 char	**ft_split(char const *str, char c)
 {
 	char	**res;
-	
-	res = (char **)malloc(sizeof(char *) * (counter(str, c) + 1));
-	res = mem_all(str, c, res);
-	if (!res || !str)
+	int		words;
+	char	*ptr;
+
+	words = counter(str, c);
+	ptr = ft_strtrim(str, (char *)&c);
+	res = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!ptr)
 		return (NULL);
-	res[counter(str, c) + 1] = NULL;
+	if (words > 0)
+		res = mem_all(ptr, c, res);
+	if (!res)
+		return (NULL);
+	res[words] = NULL;
 	return (res);
 }
 
-int main()
+/* int main()
 {
-    char const str[] = "           ";
+    char const str[] = "      split       this for   me  !       ";
     char c = ' ';
 	char **res = ft_split(str, c);
 	
@@ -96,4 +98,4 @@ int main()
 	printf("Result word 4: %s\n", res[3]);
 	printf("Result word 5: %s\n", res[4]);
 	printf("Result word NULL: %s\n", res[5]);
-}
+} */
