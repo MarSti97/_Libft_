@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 16:08:15 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/10 14:18:48 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/10 11:25:47 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/10 16:38:02 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
-
-	i = 0;
-	while (i != n)
+	t_list	*temp;
+	
+	temp = *lst;
+	while (temp->next != NULL)
 	{
-			((unsigned char *)str)[i] = c;
-			i++;
+		(del)(temp->content);
+		free (temp);
+		temp = temp->next;
 	}
-	return (str);
+	temp->next = NULL;
 }
-
-/*int main()
-{
-	char str[] = {"This is string.h library function"};
-
-	ft_memset(str, '$', 7);
-	printf("%s", str);
-}*/

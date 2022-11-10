@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 12:03:10 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/09 14:00:05 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/10 16:20:41 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ char	*ft_strtrim(char const *str, char const *set)
 	i = 0;
 	start = check_start(str, set);
 	len = (ft_strlen(str) - start - check_end(str, set));
-	if (len == 0)
+	printf("The len: %li\n", len);
+	printf("string len: %li\n", ft_strlen(str));
+	
+	if (len <= 0)
 	{
 		res = (char *)malloc(sizeof(char));
 		if (!res)

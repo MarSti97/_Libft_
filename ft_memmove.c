@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:22:51 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/09 15:34:45 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/10 17:51:57 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 /* int main()
 {
-	char src[] = "";
-	char *dest = "lorem ipsum dolor sit amet";
-
+	char src[] = "ab";
+	char dest[] = "ab";
+	printf("%ld", (src - dest));
+	printf("src = %s\n", src);
+	printf("new dest = %s\n", dest);
 	ft_memmove(dest, src, 5);
-	printf("my = %s\n", dest);
+	printf("new dest = %s\n", dest);
 	printf("src = %s\n", src);
 } */

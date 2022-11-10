@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 16:08:15 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/10 14:18:48 by mstiedl          ###   ########.fr       */
+/*   Created: 2022/11/10 09:33:52 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/10 11:24:05 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
+	t_list	*temp;
 
-	i = 0;
-	while (i != n)
+	if (!new || !lst)
+		return ;
+	if (!*lst)
 	{
-			((unsigned char *)str)[i] = c;
-			i++;
+		*lst = new;
+		return ;
 	}
-	return (str);
+	temp = ft_lstlast(*lst);
+	temp->next = new;
 }
-
-/*int main()
-{
-	char str[] = {"This is string.h library function"};
-
-	ft_memset(str, '$', 7);
-	printf("%s", str);
-}*/
