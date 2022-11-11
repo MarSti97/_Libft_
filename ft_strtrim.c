@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 12:03:10 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/10 16:20:41 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/11 18:35:32 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,43 +69,37 @@ static int	check_end(char const *str, char const *set)
 
 char	*ft_strtrim(char const *str, char const *set)
 {
-	size_t		i;
+	int		i;
 	char	*res;
-	size_t		len;
-	size_t		start;
+	int		len;
+	size_t	start;
 
 	i = 0;
 	start = check_start(str, set);
 	len = (ft_strlen(str) - start - check_end(str, set));
-	printf("The len: %li\n", len);
-	printf("string len: %li\n", ft_strlen(str));
-	
-	if (len <= 0)
+	if (start == ft_strlen(str))
 	{
 		res = (char *)malloc(sizeof(char));
 		if (!res)
 			return (0);
-		return(res = "");
+		res[0] = '\0';
+		return (res);
 	}
 	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
 	while (i != len)
-	{
-		res[i] = str[start];
-		i++;
-		start++;
-	}
+		res[i++] = str[start++];
 	res[i] = '\0';
 	return (res);
 }
 
 /* int main()
 {
-    char str[] = "\n\n\n\n  \t\t\t\t";
-    char set[] = "\n \t";
+    char str[] = "";
+    char set[] = "";
 
     printf("Start: %i\n", check_start(str, set));
     printf("End: %i\n", check_end(str, set));
-    printf("String: %s\n", ft_strtrim(str, set));
+    printf("String: $%s$\n", ft_strtrim(str, set));
 } */

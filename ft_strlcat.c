@@ -6,12 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:39:24 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/31 11:43:41 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/11 15:03:43 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bsd/string.h>
-#include <stdio.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
@@ -25,7 +24,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	len = ft_strlen(dest);
 	destlen = len;
 	srclen = ft_strlen(src);
-	if (destlen >= size || size == 0)
+	if ((destlen >= size) || (size == 0))
 	{
 		return (srclen + size);
 	}
@@ -42,12 +41,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (destlen + i);
 }
 
-/*int main()
+/* int main()
 {
-	char dest[] = "Hello ";
-	char src[] = "World!";
-    size_t num = 7;
+	char dest[] = "abxcthftn";
+	char src[] = "lorem i";
+    size_t num = 3;
 
-	printf("%ld\n", strlcat(dest, src, num));
-	printf("%s\n", dest);
-}*/
+	printf("The func: %ld\n", ft_strlcat(dest, src, num));
+	printf("Dest: %s\n", dest);
+	printf("My func: %ld\n", strlcat(dest, src, num));
+	printf("Dest: %s\n", dest);
+} */
