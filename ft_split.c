@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 09:30:55 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/11 18:57:26 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/14 16:38:23 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,16 @@ static char	**mem_all(char const *str, char c, char **res)
 
 char	**ft_split(char const *str, char c)
 {
-	char	**res;
+	char	**res = NULL;
 	int		words;
 	char	*ptr;
 
 	words = counter(str, c);
 	ptr = ft_strtrim(str, (char *)&c);
-	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!ptr)
 		return (NULL);
-	if (words > 0)
-		res = mem_all(ptr, c, res);
+	res = (char **)malloc(sizeof(char *) * (words + 1));
+	res = mem_all(ptr, c, res);
 	if (!res)
 		return (NULL);
 	res[words] = NULL;
@@ -87,8 +86,8 @@ char	**ft_split(char const *str, char c)
 
 /* int main()
 {
-    char const str[] = "      split       this for   me  !       ";
-    char c = ' ';
+    char const str[] = "^^^1^^2a,^^^^3^^^^--h^^^^";
+    char c = '^';
 	char **res = ft_split(str, c);
 	
 	printf("%i\n", counter(str, c));
@@ -98,4 +97,5 @@ char	**ft_split(char const *str, char c)
 	printf("Result word 4: %s\n", res[3]);
 	printf("Result word 5: %s\n", res[4]);
 	printf("Result word NULL: %s\n", res[5]);
-} */
+}
+ */

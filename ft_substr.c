@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 09:23:24 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/10 15:34:06 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/14 14:46:32 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,37 @@
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
 	char	*subs;
+	size_t	i;
 
+	i = 0;
+	if (!str)
+		return (0);
 	if (start >= ft_strlen(str))
-		{
-			subs = malloc(sizeof(char) * 1);
-			subs[0] = '\0';
-		}
-	if (ft_strlen(str) < start)
+	{
+		subs = malloc(sizeof(char));
+		subs[0] = '\0';
 		return (subs);
-	subs = malloc(len + 1);
+	}
+	if (len >= ft_strlen(str))
+		len = ft_strlen(str) - start;
+	subs = (char *)malloc(sizeof(char) * (len + 1));
 	if (!subs)
 		return (NULL);
-	ft_memcpy(subs, (char *)&str[start], len);
-	subs[len] = '\0';
+	while (start < ft_strlen(str) && i < len)
+		subs[i++] = str[start++];
+	subs[i] = '\0';
 	return (subs);
 }
 
 /* int main()
 {
-    char str[] = "lorem ipsum dolor sit amet";
+    char str[] = "0123456789";
+	char *ret;
 	
-	printf("%s\n", ft_substr(str, 400, 20));
+	ret = ft_substr(str, 9, 10);
+	if (!strcmp(ret, "9"))
+		printf("wtv\n");
+	printf("%s\n", ret);
+	free(ret);
+	return (0);
 } */
