@@ -6,11 +6,9 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:44:58 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/31 12:06:11 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:27:42 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_tolower(int c)
 {
@@ -18,10 +16,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-
-/*int main()
-{       
-        char c = 'z';
-
-        printf("%c", ft_tolower(c));
-}*/

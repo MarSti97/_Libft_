@@ -6,12 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:11:06 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/02 14:59:29 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:22:57 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {

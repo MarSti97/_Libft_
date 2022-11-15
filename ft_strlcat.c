@@ -6,11 +6,10 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:39:24 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/11 15:03:43 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:20:02 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <bsd/string.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)

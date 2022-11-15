@@ -6,12 +6,10 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:38:45 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/02 13:03:48 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:23:32 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)

@@ -6,13 +6,10 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 09:30:55 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/14 16:38:23 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:16:50 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
 static int	counter(char const *str, char c)
@@ -32,7 +29,7 @@ static int	counter(char const *str, char c)
 			skip = 1;
 		}
 		i++;
-		while (str[i] == c)
+		while (str[i] == c && str[i])
 		{
 			skip = 0;
 			i++;
@@ -41,7 +38,7 @@ static int	counter(char const *str, char c)
 	return (count);
 }
 
-static char	**mem_all(char const *str, char c, char **res)
+static void	mem_all(char const *str, char c, char **res)
 {
 	int		i;
 	int		count;
@@ -52,23 +49,20 @@ static char	**mem_all(char const *str, char c, char **res)
 	size = 0;
 	while (str[size])
 	{
-		if (str[size] == c)
-		{
-			res[count] = ft_substr(str, i, (size - i));
-			count++;
-			while (str[size] == c)
+		while (str[size] != c && str[size])
+			size++;
+		res[count] = ft_calloc(sizeof(char), ((size - i) + 1));
+		ft_memcpy(res[count], &str[i], (size - i));
+		count++;
+		while (str[size] == c && str[size])
 				size++;
-			i = size;
-		}
-		size++;
+		i = size;
 	}
-	res[count] = ft_substr(str, i, (size - i));
-	return (res);
 }
 
 char	**ft_split(char const *str, char c)
 {
-	char	**res = NULL;
+	char	**res;
 	int		words;
 	char	*ptr;
 
@@ -77,17 +71,18 @@ char	**ft_split(char const *str, char c)
 	if (!ptr)
 		return (NULL);
 	res = (char **)malloc(sizeof(char *) * (words + 1));
-	res = mem_all(ptr, c, res);
+	mem_all(ptr, c, res);
 	if (!res)
 		return (NULL);
 	res[words] = NULL;
+	free (ptr);
 	return (res);
 }
 
 /* int main()
 {
-    char const str[] = "^^^1^^2a,^^^^3^^^^--h^^^^";
-    char c = '^';
+    char const str[] = "tripouille";
+    char c = 0;
 	char **res = ft_split(str, c);
 	
 	printf("%i\n", counter(str, c));
@@ -97,5 +92,4 @@ char	**ft_split(char const *str, char c)
 	printf("Result word 4: %s\n", res[3]);
 	printf("Result word 5: %s\n", res[4]);
 	printf("Result word NULL: %s\n", res[5]);
-}
- */
+} */

@@ -6,11 +6,10 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:32:32 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/02 15:28:13 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:20:22 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <bsd/string.h>
 #include <stdio.h>
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)

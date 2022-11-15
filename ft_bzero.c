@@ -6,12 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:06:59 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/28 16:21:53 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 17:33:47 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 void	ft_bzero(void *str, size_t n)
 {

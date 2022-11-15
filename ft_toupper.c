@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:44:53 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/28 16:16:23 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:27:46 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,3 @@ int	ft_toupper(int c)
 		c -= 32;
 	return (c);
 }
-
-/*int main()
-{
-	char c = 'A';
-
-	printf("%c", ft_toupper(c));
-}*/

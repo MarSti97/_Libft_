@@ -6,12 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:15 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/10 14:18:48 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:16:13 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *str, int c, size_t n)
 {

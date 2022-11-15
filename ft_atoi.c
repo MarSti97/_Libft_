@@ -6,11 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:12:59 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/02 14:35:29 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 17:30:45 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

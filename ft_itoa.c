@@ -1,17 +1,16 @@
 /* ************************************************************************** */
-/*	*/
-/*	:::	  ::::::::   */
-/*   ft_itoa.c	  :+:	  :+:	:+:   */
-/*	+:+ +:+	 +:+	 */
-/*   By: mstiedl <mstiedl@student.42lisboa.com>	 +#+  +:+	   +#+	*/
-/*	+#+#+#+#+#+   +#+	   */
-/*   Created: 2022/11/04 09:31:55 by mstiedl	   #+#	#+#	 */
-/*   Updated: 2022/11/04 09:46:46 by mstiedl	  ###   ########.fr	   */
-/*	*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/15 17:55:03 by mstiedl           #+#    #+#             */
+/*   Updated: 2022/11/15 17:55:06 by mstiedl          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static int	counter(int n)
 {
@@ -26,7 +25,7 @@ static int	counter(int n)
 	return (i);
 }
 
-char	*make_neg(int n, int length)
+static char	*make_neg(int n, int length)
 {
 	char	*str;
 	int		i;
@@ -34,10 +33,9 @@ char	*make_neg(int n, int length)
 
 	max = n;
 	i = length + 1;
-	str = malloc(length + 2);
+	str = ft_calloc(sizeof(char), (length + 2));
 	if (!str)
 		return (NULL);
-	str[i] = '\0';
 	max = max * -1;
 	while (i > 1)
 	{
@@ -48,16 +46,15 @@ char	*make_neg(int n, int length)
 	return (str);
 }
 
-char	*make_pos(int n, int length)
+static char	*make_pos(int n, int length)
 {
 	char	*str;
 	int		i;
 
 	i = length;
-	str = malloc(length + 1);
+	str = ft_calloc(sizeof(char), (length + 1));
 	if (!str)
 		return (NULL);
-	str[i] = '\0';
 	while (i > 0)
 	{
 		str[--i] = n % 10 + 48;
@@ -74,9 +71,8 @@ char	*ft_itoa(int n)
 	length = counter(n);
 	if (n == 0)
 	{
-		str = malloc(2);
+		str = ft_calloc(sizeof(char), 2);
 		str[0] = '0';
-		str[1] = '\0';
 		return (str);
 	}
 	if (n < 0)

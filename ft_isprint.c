@@ -6,11 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:08:06 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/10/31 12:11:20 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 17:33:26 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

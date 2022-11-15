@@ -6,12 +6,10 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:22:51 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/11 10:14:02 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:15:53 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)

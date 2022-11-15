@@ -6,11 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 21:04:59 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 09:25:59 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:16:41 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *str, int fd)
 {

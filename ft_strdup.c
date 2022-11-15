@@ -6,14 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:13:44 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/09 12:43:04 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:17:15 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strdup(const char *str)
 {

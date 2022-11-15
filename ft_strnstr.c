@@ -6,12 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:16:14 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/09 12:38:14 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:23:15 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 {

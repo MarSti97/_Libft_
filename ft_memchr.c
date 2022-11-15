@@ -6,12 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:58:44 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/09 15:33:31 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:12:21 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
