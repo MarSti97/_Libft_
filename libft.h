@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:16:08 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/15 15:56:36 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/12/28 17:31:57 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 // Part 1
 int		ft_isalpha(int c);
@@ -49,10 +54,15 @@ char	**ft_split(char const *str, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
 void	ft_striteri(char *str, void (*f)(unsigned int, char*));
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *str, int fd);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
-void	ft_putnbr_fd(int nb, int fd);
+int		ft_putnbr_fd(int nb, int fd);
+// GNL
+char	*get_next_line(int fd);
+// ft_printf
+int	ft_printf(const char *input, ...);
+
 // Bonus
 typedef struct s_list
 {

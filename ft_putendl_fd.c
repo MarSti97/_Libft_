@@ -6,11 +6,11 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 21:10:55 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/11/08 09:24:43 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/12/28 17:32:43 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *str, int fd)
 {
@@ -27,5 +27,5 @@ void	ft_putendl_fd(char *str, int fd)
 
 /* int main()
 {
-    ft_putendl_fd("Marcell", 1);
+    ft_putendl_fd(str, 1);
 } */
