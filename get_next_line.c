@@ -6,16 +6,16 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:04 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/12/28 14:29:50 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/12/29 12:29:25 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_mod(char *str1, char *str2, int pos);
-char	*get_it_all(int fd, char *text);
-int		checker(char *str);
-char	*not_keep(char *text);
+static char	*ft_strjoin_mod(char *str1, char *str2, int pos);
+static char	*get_it_all(int fd, char *text);
+static int	checker(char *str);
+static char	*not_keep(char *text);
 
 char	*get_next_line(int fd)
 {

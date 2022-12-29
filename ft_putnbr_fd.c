@@ -6,7 +6,7 @@
 /*   By: mstiedl <mstiedl@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 21:37:44 by mstiedl           #+#    #+#             */
-/*   Updated: 2022/12/28 17:25:18 by mstiedl          ###   ########.fr       */
+/*   Updated: 2022/12/29 12:25:51 by mstiedl          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	ft_putnbr_fd(int nb, int fd)
 	i = nb;
 	if (i < 0)
 	{
-		len += write(1, "-", 1);
+		len += write(fd, "-", 1);
 		i *= -1;
 	}
 	if (i > 9)
-		len += ft_putnbr((i / 10));
-	len += ft_putchar(i % 10 + 48);
+		len += ft_putnbr_fd((i / 10), 1);
+	len += ft_putchar_fd((i % 10 + 48), 1);
 	return (len);
 }
 
