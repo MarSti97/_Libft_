@@ -5,8 +5,8 @@ First project of the 42 common core. A library of useful function that I am perm
 
 ## Contents
 
-- 34 Function
-- 9 Bonus functions working woth linked  lists
+- 34 Functions
+- 9 Bonus functions working with linked  lists
 - Printf: As outlined in the 42 subject 
 - Getnextline: As outlined in the 42 subject
 
